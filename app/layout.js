@@ -1,14 +1,23 @@
-import './globals.css'
+import './global.scss';
+import Link from 'next/link';
+import styles from './layout.module.scss';
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.js. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
       <head />
-      <body>{children}</body>
+      <body>
+        <header className={styles.header}>
+          <nav>
+            <Link href="/">Home</Link>
+            <Link href="/collection">Collection</Link>
+            <Link href="/">About</Link>
+            <Link href="/">Cart</Link>
+          </nav>
+        </header>
+        {children}
+        <footer>Di & Co. All rights reserved.</footer>
+      </body>
     </html>
-  )
+  );
 }
