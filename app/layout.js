@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
           </nav>
         </header>
         {children}
-        <footer>Di & Co. All rights reserved.</footer>
+        <footer className={styles.footer}>Di & Co. All rights reserved.</footer>
       </body>
     </html>
   );

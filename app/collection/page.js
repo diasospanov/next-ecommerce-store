@@ -1,19 +1,18 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import collection from '../database/nftcollection.js';
-
-// import styles from '../collection/page.module.scss';
+import { collection } from '../../database/nftcollection.js';
+import styles from '../collection/page.module.scss';
 
 export default function CollectionPage() {
   return (
     <>
       <div>
-        <h1>Our Finest NFT Collection</h1>
+        <h1 className={styles.h1}>Our Finest NFT Collection</h1>
       </div>
       <div>
         {collection.map((nft) => {
           return (
-            <div key={nft.id}>
+            <div key={nft.id} className={styles.div}>
               <Link href={`/collection/${nft.name.toLowerCase()}`}>
                 <Image
                   src={`/${nft.name}.jpg`}

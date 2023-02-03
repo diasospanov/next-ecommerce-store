@@ -1,3 +1,16 @@
 .header {
-  background-color: #FCD12A;
+  background-color: #696969;
+  display: flex;
+  // align-items: center;
+  justify-items: auto;
+  gap: 50px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  font-size: medium;
+  font-weight: 700;
+}
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -1,26 +1,17 @@
-import Image from 'next/image.js';
+// import Image from 'next/image.js';
 import { notFound } from 'next/navigation';
-import { collection } from '../../database/nftcollection.js';
+import { collection } from '../../../database/nftcollection.js';
+import Nft from './Nft';
+
+// export const dynamic = 'force dynamic';
 
 export default function NftPage(props) {
   const nftOfCurrentPage = collection.find((nft) => {
     return nft.name.toLowerCase() === props.params.nftName;
   });
 
-  /* if (!nftOfCurrentPage) {
+  if (!nftOfCurrentPage) {
     notFound();
-  } */
-  return (
-    <>
-      <h1>{nftOfCurrentPage.name}</h1>
-      <Image
-        src={`/${nftOfCurrentPage.name}.jpg`}
-        alt="NFT"
-        width="300"
-        height="300"
-      />
-      <p>{nftOfCurrentPage.price}</p>
-      <p>{nftOfCurrentPage.description}</p>
-    </>
-  );
+  }
+  return <Nft nft={nftOfCurrentPage} />;
 }
