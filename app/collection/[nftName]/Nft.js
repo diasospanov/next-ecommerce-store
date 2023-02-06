@@ -7,11 +7,11 @@ export default function Nft(props) {
   const [count, setCount] = useState(1);
   return (
     <>
-      <h1 className={styles.h1}>{props.nft.name}</h1>
+      <h1 className={styles.h1}>{props.nft.id}</h1>
 
       <div className={styles.div}>
         <Image
-          src={`/${props.nft.name}.jpg`}
+          src={`/${props.nft.id}.jpg`}
           alt="NFT"
           width="300"
           height="300"

@@ -1,6 +1,8 @@
-import fs from 'node:fs';
+// import fs from 'node:fs';
+import { cache } from 'react';
+import { sql } from './connect';
 
-export const collection = [
+export const collection1 = [
   {
     id: 1,
     name: 'NFT-1',
@@ -38,3 +40,20 @@ export const collection = [
     price: 150000,
   },
 ];
+
+// get all collection of NFTs
+export const getCollection = cache(async () => {
+  const collection = await sql`
+  SELECT * FROM collection
+  `;
+  return collection;
+});
+
+export const getSingleNft = cache(async (id) => {
+  const collection = await sql`
+SELECT * FROM collection
+  WHERE id = ${id}
+`;
+
+  return collection[0];
+});
