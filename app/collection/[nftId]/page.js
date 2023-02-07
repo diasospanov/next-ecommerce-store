@@ -1,7 +1,7 @@
 // import Image from 'next/image.js';
 import { notFound } from 'next/navigation';
-import { getSingleNft } from '../../../database/nftcollection.js';
-import Nft from './Nft';
+import { getSingleNft } from '../../../database/nftcollection.ts';
+import Nft from './Nft.js';
 
 // export const dynamic = 'force dynamic';
 
@@ -10,7 +10,7 @@ export default async function NftPage(props) {
     return nft.name.toLowerCase() === props.params.nftName;
   }); */
 
-  const nftOfCurrentPage = await getSingleNft(props.params.id);
+  const nftOfCurrentPage = await getSingleNft(props.params.nftId);
 
   if (!nftOfCurrentPage) {
     notFound();

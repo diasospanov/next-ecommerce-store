@@ -7,17 +7,17 @@ export default function Nft(props) {
   const [count, setCount] = useState(1);
   return (
     <>
-      <h1 className={styles.h1}>{props.nft.id}</h1>
+      <h1 className={styles.h1}>{props.nft.name}</h1>
 
       <div className={styles.div}>
         <Image
-          src={`/${props.nft.id}.jpg`}
+          src={`/${props.nft.name}.jpg`}
           alt="NFT"
           width="300"
           height="300"
         />
         <section>
-          <p>{props.nft.price}</p>
+          <p>Price: {props.nft.price}</p>
           <div>
             <button
               onClick={() => {
@@ -26,7 +26,7 @@ export default function Nft(props) {
             >
               -
             </button>
-            {count}
+            Quantity: {count}
             <button
               onClick={() => {
                 setCount(count + 1);

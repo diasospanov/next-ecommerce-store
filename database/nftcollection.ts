@@ -2,7 +2,7 @@
 import { cache } from 'react';
 import { sql } from './connect';
 
-export const collection1 = [
+/* export const collection1 = [
   {
     id: 1,
     name: 'NFT-1',
@@ -39,21 +39,27 @@ export const collection1 = [
     description: 'A unique NFT with certain features.',
     price: 150000,
   },
-];
+]; */
+
+type Nft = {
+  id: number;
+  name: string | number;
+  description: string;
+  price: number;
+};
 
 // get all collection of NFTs
 export const getCollection = cache(async () => {
-  const collection = await sql`
+  const collection = await sql<Nft[]>`
   SELECT * FROM collection
   `;
   return collection;
 });
 
-export const getSingleNft = cache(async (id) => {
-  const collection = await sql`
+export const getSingleNft = cache(async (id: number) => {
+  const [nft] = await sql<Nft[]>`
 SELECT * FROM collection
   WHERE id = ${id}
 `;
-
-  return collection[0];
+  return nft;
 });

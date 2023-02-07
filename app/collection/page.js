@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { getCollection } from '../../database/nftcollection.js';
+import { getCollection } from '../../database/nftcollection.ts';
 import styles from '../collection/page.module.scss';
 
 export default async function CollectionPage() {
