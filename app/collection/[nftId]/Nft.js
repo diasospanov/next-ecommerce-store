@@ -1,11 +1,13 @@
 'use client';
 import Image from 'next/image';
 import { useState } from 'react';
+// import { getCollection } from '../../../database/nftcollection';
 import { getParsedCookie, setStringifiedCookie } from '../../../utils/cookies';
 import styles from './Nft.module.scss';
 
 export default function Nft(props) {
   const [count, setCount] = useState(1);
+
   return (
     <>
       <h1 className={styles.h1}>{props.nft.name}</h1>
@@ -22,7 +24,7 @@ export default function Nft(props) {
           <div>
             <button
               onClick={() => {
-                const nftsInCookies = getParsedCookie('cart');
+                /* const nftsInCookies = getParsedCookie('cart');
                 if (!nftsInCookies) {
                   return;
                 }
@@ -35,7 +37,7 @@ export default function Nft(props) {
                     foundNft.quantity = 1;
                   }
                   setStringifiedCookie('cart', nftsInCookies);
-                }
+                } */
                 count >= 2 && setCount(count - 1);
               }}
             >
@@ -44,7 +46,7 @@ export default function Nft(props) {
             Quantity: {count}
             <button
               onClick={() => {
-                const nftsInCookies = getParsedCookie('cart');
+                /* const nftsInCookies = getParsedCookie('cart');
                 if (!nftsInCookies) {
                   setStringifiedCookie('cart', [
                     { id: props.nft.id, quantity: 2 },
@@ -60,14 +62,35 @@ export default function Nft(props) {
                 } else {
                   nftsInCookies.push({ id: props.nft.id, quantity: 2 });
                 }
-                setStringifiedCookie('cart', nftsInCookies);
+                setStringifiedCookie('cart', nftsInCookies); */
                 setCount(count + 1);
               }}
             >
               +
             </button>
           </div>
-          <button>Add to Cart</button>
+          <button
+            onClick={() => {
+              const nftsInCookies = getParsedCookie('cart');
+              if (!nftsInCookies) {
+                setStringifiedCookie('cart', [
+                  { id: props.nft.id, quantity: count },
+                ]);
+                return;
+              }
+              const foundNft = nftsInCookies.find((nftInCookie) => {
+                return nftInCookie.id === props.nft.id;
+              });
+              if (foundNft) {
+                foundNft.quantity = foundNft.quantity + count;
+              } else {
+                nftsInCookies.push({ id: props.nft.id, quantity: count });
+              }
+              setStringifiedCookie('cart', nftsInCookies);
+            }}
+          >
+            Add to Cart
+          </button>
           <p>{props.nft.description}</p>
         </section>
       </div>
