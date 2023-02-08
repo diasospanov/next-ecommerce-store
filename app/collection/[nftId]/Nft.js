@@ -1,6 +1,7 @@
 'use client';
 import Image from 'next/image';
 import { useState } from 'react';
+import { getParsedCookie, setStringifiedCookie } from '../../../utils/cookies';
 import styles from './Nft.module.scss';
 
 export default function Nft(props) {
@@ -21,6 +22,20 @@ export default function Nft(props) {
           <div>
             <button
               onClick={() => {
+                const nftsInCookies = getParsedCookie('cart');
+                if (!nftsInCookies) {
+                  return;
+                }
+                const foundNft = nftsInCookies.find((nftInCookie) => {
+                  return nftInCookie.id === props.nft.id;
+                });
+                if (foundNft) {
+                  foundNft.quantity--;
+                  if (foundNft.quantity < 1) {
+                    foundNft.quantity = 1;
+                  }
+                  setStringifiedCookie('cart', nftsInCookies);
+                }
                 count >= 2 && setCount(count - 1);
               }}
             >
@@ -29,6 +44,23 @@ export default function Nft(props) {
             Quantity: {count}
             <button
               onClick={() => {
+                const nftsInCookies = getParsedCookie('cart');
+                if (!nftsInCookies) {
+                  setStringifiedCookie('cart', [
+                    { id: props.nft.id, quantity: 2 },
+                  ]);
+                  setCount(count + 1);
+                  return;
+                }
+                const foundNft = nftsInCookies.find((nftInCookie) => {
+                  return nftInCookie.id === props.nft.id;
+                });
+                if (foundNft) {
+                  foundNft.quantity++;
+                } else {
+                  nftsInCookies.push({ id: props.nft.id, quantity: 2 });
+                }
+                setStringifiedCookie('cart', nftsInCookies);
                 setCount(count + 1);
               }}
             >
