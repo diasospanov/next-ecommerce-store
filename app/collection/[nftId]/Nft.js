@@ -1,7 +1,6 @@
 'use client';
 import Image from 'next/image';
 import { useState } from 'react';
-// import { getCollection } from '../../../database/nftcollection';
 import { getParsedCookie, setStringifiedCookie } from '../../../utils/cookies';
 import styles from './Nft.module.scss';
 

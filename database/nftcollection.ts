@@ -1,4 +1,4 @@
-// import fs from 'node:fs';
+import fs from 'node:fs';
 import { cache } from 'react';
 import { sql } from './connect';
 
