@@ -2,12 +2,15 @@ import { cookies } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getCollection } from '../../database/nftcollection.ts';
+import styles from './page.module.scss';
+
+/* import RemoveButton from './CartButtons.js'; */
 
 // import { getParsedCookie } from '../../utils/cookies';
 
 // import Cart from './Cart';
 
-export default async function CartPage() {
+export default async function CartPage(props) {
   // const nftsInCookies = getParsedCookie('cart');
   const nftsInCookies = cookies().get('cart');
   let nftsInCookiesParsed = [];
@@ -16,10 +19,11 @@ export default async function CartPage() {
   }
   const collection = await getCollection();
   let collectionWithQuantity = [];
-
+  let nftWithQuantity;
+  let nftsInCart;
   if (nftsInCookies) {
     collectionWithQuantity = collection.map((nft) => {
-      const nftWithQuantity = { ...nft, quantity: 0 };
+      nftWithQuantity = { ...nft, quantity: 0 };
       const nftInCookies = nftsInCookiesParsed.find(
         (nftObject) => nft.id === nftObject.id,
       );
@@ -28,20 +32,18 @@ export default async function CartPage() {
       }
       return nftWithQuantity;
     });
+    /* nftsInCart = collectionWithQuantity.filter(
+      (cartNft) => cartNft.quantity > 0,
+    ); */
   }
-  /* const nftsInCart = collectionWithQuantity.filter(
-    (cartObject) => cartObject.quantity > 0,
-  ); */
 
   return (
     <>
       <h1>Your Cart</h1>
-      {/* {const nftsInCart = collectionWithQuantity.filter(
-      (cartObject) => cartObject.quantity > 0
-    )} */}
+
       {collectionWithQuantity.map((nft) => {
         return (
-          <div key={nft.id}>
+          <div key={nft.id} className={styles.div}>
             <Link href={`/collection/${nft.id}`}>
               <Image
                 src={`/${nft.name}.jpg`}
@@ -53,8 +55,9 @@ export default async function CartPage() {
             <Link href={`/collection/${nft.id}`}>
               <h2>{nft.name}</h2>
             </Link>
-            <p>{nft.price}</p>
-            <p>{nft.quantity}</p>
+            <p>Price: {nft.price}</p>
+
+            <p>Quantity: {nft.quantity}</p>
           </div>
         );
       })}
