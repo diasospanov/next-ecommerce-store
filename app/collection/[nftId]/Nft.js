@@ -10,20 +10,20 @@ export default function Nft(props) {
   return (
     <>
       <h1 className={styles.h1}>{props.nft.name}</h1>
-
-      <div className={styles.div}>
-        <Image
-          src={`/${props.nft.name}.jpg`}
-          alt="NFT"
-          width="300"
-          height="300"
-        />
-        <section>
-          <p>Price: {props.nft.price}</p>
-          <div>
-            <button
-              onClick={() => {
-                /* const nftsInCookies = getParsedCookie('cart');
+      <div>
+        <div className={styles.div}>
+          <Image
+            src={`/${props.nft.name}.jpg`}
+            alt="NFT"
+            width="300"
+            height="300"
+          />
+          <section>
+            <p>Price: {props.nft.price}</p>
+            <div>
+              <button
+                onClick={() => {
+                  /* const nftsInCookies = getParsedCookie('cart');
                 if (!nftsInCookies) {
                   return;
                 }
@@ -37,15 +37,15 @@ export default function Nft(props) {
                   }
                   setStringifiedCookie('cart', nftsInCookies);
                 } */
-                count >= 2 && setCount(count - 1);
-              }}
-            >
-              -
-            </button>
-            Quantity: {count}
-            <button
-              onClick={() => {
-                /* const nftsInCookies = getParsedCookie('cart');
+                  count >= 2 && setCount(count - 1);
+                }}
+              >
+                -
+              </button>
+              Quantity: {count}
+              <button
+                onClick={() => {
+                  /* const nftsInCookies = getParsedCookie('cart');
                 if (!nftsInCookies) {
                   setStringifiedCookie('cart', [
                     { id: props.nft.id, quantity: 2 },
@@ -62,36 +62,37 @@ export default function Nft(props) {
                   nftsInCookies.push({ id: props.nft.id, quantity: 2 });
                 }
                 setStringifiedCookie('cart', nftsInCookies); */
-                setCount(count + 1);
+                  setCount(count + 1);
+                }}
+              >
+                +
+              </button>
+            </div>
+            <button
+              onClick={() => {
+                const nftsInCookies = getParsedCookie('cart');
+                if (!nftsInCookies) {
+                  setStringifiedCookie('cart', [
+                    { id: props.nft.id, quantity: count },
+                  ]);
+                  return;
+                }
+                const foundNft = nftsInCookies.find((nftInCookie) => {
+                  return nftInCookie.id === props.nft.id;
+                });
+                if (foundNft) {
+                  foundNft.quantity = foundNft.quantity + count;
+                } else {
+                  nftsInCookies.push({ id: props.nft.id, quantity: count });
+                }
+                setStringifiedCookie('cart', nftsInCookies);
               }}
             >
-              +
+              Add to Cart
             </button>
-          </div>
-          <button
-            onClick={() => {
-              const nftsInCookies = getParsedCookie('cart');
-              if (!nftsInCookies) {
-                setStringifiedCookie('cart', [
-                  { id: props.nft.id, quantity: count },
-                ]);
-                return;
-              }
-              const foundNft = nftsInCookies.find((nftInCookie) => {
-                return nftInCookie.id === props.nft.id;
-              });
-              if (foundNft) {
-                foundNft.quantity = foundNft.quantity + count;
-              } else {
-                nftsInCookies.push({ id: props.nft.id, quantity: count });
-              }
-              setStringifiedCookie('cart', nftsInCookies);
-            }}
-          >
-            Add to Cart
-          </button>
-          <p>{props.nft.description}</p>
-        </section>
+            <p>{props.nft.description}</p>
+          </section>
+        </div>
       </div>
     </>
   );

@@ -7,8 +7,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head />
       <body>
-        <header className={styles.header}>
-          <nav>
+        <header>
+          <nav className={styles.header}>
             <Link href="/">Home</Link>
             <Link href="/collection">Collection</Link>
             <Link href="/">About</Link>

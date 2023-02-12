@@ -39,7 +39,7 @@ export default async function CartPage(props) {
 
   return (
     <>
-      <h1>Your Cart</h1>
+      <h1 className={styles.h1}>Your Cart</h1>
 
       {collectionWithQuantity.map((nft) => {
         return (
@@ -61,6 +61,10 @@ export default async function CartPage(props) {
           </div>
         );
       })}
+      <div className={styles.Link}>Total: SUM</div>
+      <Link href="/checkout" className={styles.Link}>
+        <h3>Continue To Checkout</h3>
+      </Link>
     </>
   );
 }
