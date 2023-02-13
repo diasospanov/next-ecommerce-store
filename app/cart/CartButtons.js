@@ -76,3 +76,15 @@ export function RemoveButton(props) {
     </button>
   );
 }
+
+export default function CheckoutButton() {
+  return (
+    <button
+      onClick={() => {
+        "location.href='/checkout'";
+      }}
+    >
+      <h3>Continue To Checkout</h3>
+    </button>
+  );
+}

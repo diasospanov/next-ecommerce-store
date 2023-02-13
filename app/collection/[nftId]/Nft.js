@@ -1,11 +1,13 @@
 'use client';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { getParsedCookie, setStringifiedCookie } from '../../../utils/cookies';
 import styles from './Nft.module.scss';
 
 export default function Nft(props) {
   const [count, setCount] = useState(1);
+  const router = useRouter();
 
   return (
     <>
@@ -17,10 +19,11 @@ export default function Nft(props) {
             alt="NFT"
             width="300"
             height="300"
+            data-test-id="product-image"
           />
           <section>
-            <p>Price: {props.nft.price}</p>
-            <div>
+            <p data-test-id="product-price">Price: {props.nft.price}</p>
+            <div data-test-id="product-quantity">
               <button
                 onClick={() => {
                   /* const nftsInCookies = getParsedCookie('cart');
@@ -86,7 +89,9 @@ export default function Nft(props) {
                   nftsInCookies.push({ id: props.nft.id, quantity: count });
                 }
                 setStringifiedCookie('cart', nftsInCookies);
+                router.refresh();
               }}
+              data-test-id="product-add-to-cart"
             >
               Add to Cart
             </button>

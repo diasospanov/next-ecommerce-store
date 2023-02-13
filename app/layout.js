@@ -1,5 +1,6 @@
 import './global.scss';
 import Link from 'next/link';
+import Cart from './cart/Cart';
 import styles from './layout.module.scss';
 
 export default function RootLayout({ children }) {
@@ -9,10 +10,22 @@ export default function RootLayout({ children }) {
       <body>
         <header>
           <nav className={styles.header}>
-            <Link href="/">Home</Link>
-            <Link href="/collection">Collection</Link>
-            <Link href="/">About</Link>
-            <Link href="/cart">Cart</Link>
+            <div>
+              <Link href="/">Home</Link>
+            </div>
+            <div>
+              <Link href="/collection" data-test-id="products-link">
+                Collection
+              </Link>
+            </div>
+            <div>
+              <Link href="/">About</Link>
+            </div>
+            <div>
+              <Link href="/cart">
+                Cart (<Cart />)
+              </Link>
+            </div>
           </nav>
         </header>
         {children}

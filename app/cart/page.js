@@ -4,14 +4,15 @@ import Link from 'next/link';
 import { getCollection } from '../../database/nftcollection.ts';
 import styles from './page.module.scss';
 
+// import RouterHandler from './router';
+
 /* import RemoveButton from './CartButtons.js'; */
 
 // import { getParsedCookie } from '../../utils/cookies';
 
 // import Cart from './Cart';
 
-export default async function CartPage(props) {
-  // const nftsInCookies = getParsedCookie('cart');
+export default async function CartPage() {
   const nftsInCookies = cookies().get('cart');
   let nftsInCookiesParsed = [];
   if (nftsInCookies) {
@@ -21,6 +22,7 @@ export default async function CartPage(props) {
   let collectionWithQuantity = [];
   let nftWithQuantity;
   let nftsInCart;
+  let total;
   if (nftsInCookies) {
     collectionWithQuantity = collection.map((nft) => {
       nftWithQuantity = { ...nft, quantity: 0 };
@@ -32,36 +34,44 @@ export default async function CartPage(props) {
       }
       return nftWithQuantity;
     });
-    /* nftsInCart = collectionWithQuantity.filter(
+
+    nftsInCart = collectionWithQuantity.filter(
       (cartNft) => cartNft.quantity > 0,
-    ); */
+    );
+    total = nftsInCart.reduce(function (previousValue, currentValue) {
+      return previousValue + currentValue.quantity * currentValue.price;
+    }, 0);
   }
 
   return (
     <>
       <h1 className={styles.h1}>Your Cart</h1>
 
-      {collectionWithQuantity.map((nft) => {
-        return (
-          <div key={nft.id} className={styles.div}>
-            <Link href={`/collection/${nft.id}`}>
-              <Image
-                src={`/${nft.name}.jpg`}
-                alt="NFT"
-                width="100"
-                height="100"
-              />
-            </Link>
-            <Link href={`/collection/${nft.id}`}>
-              <h2>{nft.name}</h2>
-            </Link>
-            <p>Price: {nft.price}</p>
+      {nftsInCart &&
+        nftsInCart.map((nft) => {
+          return (
+            <div key={nft.id} className={styles.div}>
+              <Link href={`/collection/${nft.id}`}>
+                <Image
+                  src={`/${nft.name}.jpg`}
+                  alt="NFT"
+                  width="100"
+                  height="100"
+                />
+              </Link>
+              <Link href={`/collection/${nft.id}`}>
+                <h2>{nft.name}</h2>
+              </Link>
+              <p>Price: {nft.price}</p>
 
-            <p>Quantity: {nft.quantity}</p>
-          </div>
-        );
-      })}
-      <div className={styles.Link}>Total: SUM</div>
+              <p>Quantity: {nft.quantity}</p>
+            </div>
+          );
+        })}
+      <div className={styles.Link}>
+        <b>Total: {total}</b>
+      </div>
+
       <Link href="/checkout" className={styles.Link}>
         <h3>Continue To Checkout</h3>
       </Link>

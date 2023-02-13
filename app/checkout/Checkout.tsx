@@ -27,6 +27,7 @@ export default function Checkout() {
                 const enteredFirstName = event.currentTarget.value;
                 setFirstName(enteredFirstName);
               }}
+              required
             />
           </label>
           <br />
@@ -38,6 +39,7 @@ export default function Checkout() {
                 const enteredLastName = event.currentTarget.value;
                 setLastName(enteredLastName);
               }}
+              required
             />
           </label>
           <br />
@@ -49,6 +51,7 @@ export default function Checkout() {
                 const enteredBuyerEmail = event.currentTarget.value;
                 setBuyerEmail(enteredBuyerEmail);
               }}
+              required
             />
           </label>
           <br />
@@ -62,6 +65,7 @@ export default function Checkout() {
                 const enteredAddress = event.currentTarget.value;
                 setAddress(enteredAddress);
               }}
+              required
             />
           </label>
           <br />
@@ -73,6 +77,7 @@ export default function Checkout() {
                 const enteredCity = event.currentTarget.value;
                 setCity(enteredCity);
               }}
+              required
             />
           </label>
           <br />
@@ -84,6 +89,7 @@ export default function Checkout() {
                 const enteredPostalCode = event.currentTarget.value;
                 setPostalCode(enteredPostalCode);
               }}
+              required
             />
           </label>
           <br />
@@ -95,6 +101,7 @@ export default function Checkout() {
                 const enteredCountry = event.currentTarget.value;
                 setCountry(enteredCountry);
               }}
+              required
             />
           </label>
           <br />
@@ -108,6 +115,7 @@ export default function Checkout() {
                 const enteredCreditCard = event.currentTarget.value;
                 setCreditCard(enteredCreditCard);
               }}
+              required
             />
           </label>
           <br />
@@ -119,6 +127,7 @@ export default function Checkout() {
                 const enteredExpirationDate = event.currentTarget.value;
                 setExpirationDate(enteredExpirationDate);
               }}
+              required
             />
           </label>
           <br />
@@ -130,11 +139,13 @@ export default function Checkout() {
                 const enteredSecurityCode = event.currentTarget.value;
                 setSecurityCode(enteredSecurityCode);
               }}
+              required
             />
           </label>
           <br />
         </div>
       </section>
+
       <Link href="/confirmation" className={styles.Link}>
         <h3>Confirm Your Order</h3>
       </Link>
