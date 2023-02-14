@@ -50,7 +50,11 @@ export default async function CartPage() {
       {nftsInCart &&
         nftsInCart.map((nft) => {
           return (
-            <div key={nft.id} className={styles.div}>
+            <div
+              key={nft.id}
+              className={styles.div}
+              data-test-id="cart-product-<product id>"
+            >
               <Link href={`/collection/${nft.id}`}>
                 <Image
                   src={`/${nft.name}.jpg`}
@@ -64,15 +68,21 @@ export default async function CartPage() {
               </Link>
               <p>Price: {nft.price}</p>
 
-              <p>Quantity: {nft.quantity}</p>
+              <p data-test-id="cart-product-quantity-<product id>">
+                Quantity: {nft.quantity}
+              </p>
             </div>
           );
         })}
       <div className={styles.Link}>
-        <b>Total: {total}</b>
+        <b data-test-id="cart-total">Total: {total}</b>
       </div>
 
-      <Link href="/checkout" className={styles.Link}>
+      <Link
+        href="/checkout"
+        className={styles.Link}
+        data-test-id="cart-checkout"
+      >
         <h3>Continue To Checkout</h3>
       </Link>
     </>

@@ -19,7 +19,7 @@ export default function Checkout() {
       <h1 className={styles.h1}>Checkout</h1>
       <section className={styles.section}>
         <div className={styles.div}>
-          <label className={styles.label}>
+          <label className={styles.label} data-test-id="checkout-first-name">
             First Name&nbsp;&nbsp;
             <input
               value={firstName}
@@ -31,7 +31,7 @@ export default function Checkout() {
             />
           </label>
           <br />
-          <label className={styles.label}>
+          <label className={styles.label} data-test-id="checkout-last-name">
             Last Name&nbsp;&nbsp;
             <input
               value={lastName}
@@ -43,7 +43,7 @@ export default function Checkout() {
             />
           </label>
           <br />
-          <label className={styles.label}>
+          <label className={styles.label} data-test-id="checkout-email">
             E-Mail&nbsp;&nbsp;
             <input
               value={buyerEmail}
@@ -57,7 +57,7 @@ export default function Checkout() {
           <br />
         </div>
         <div className={styles.div}>
-          <label className={styles.label}>
+          <label className={styles.label} data-test-id="checkout-address">
             Address&nbsp;&nbsp;
             <input
               value={address}
@@ -69,7 +69,7 @@ export default function Checkout() {
             />
           </label>
           <br />
-          <label className={styles.label}>
+          <label className={styles.label} data-test-id="checkout-city">
             City&nbsp;&nbsp;
             <input
               value={city}
@@ -81,7 +81,7 @@ export default function Checkout() {
             />
           </label>
           <br />
-          <label className={styles.label}>
+          <label className={styles.label} data-test-id="checkout-postal-code">
             Postal Code&nbsp;&nbsp;
             <input
               value={postalCode}
@@ -93,7 +93,7 @@ export default function Checkout() {
             />
           </label>
           <br />
-          <label className={styles.label}>
+          <label className={styles.label} data-test-id="checkout-country">
             Country&nbsp;&nbsp;
             <input
               value={country}
@@ -107,7 +107,7 @@ export default function Checkout() {
           <br />
         </div>
         <div className={styles.div}>
-          <label className={styles.label}>
+          <label className={styles.label} data-test-id="checkout-credit-card">
             Credit Card&nbsp;&nbsp;
             <input
               value={creditCard}
@@ -119,7 +119,10 @@ export default function Checkout() {
             />
           </label>
           <br />
-          <label className={styles.label}>
+          <label
+            className={styles.label}
+            data-test-id="checkout-expiration-date"
+          >
             Expiration Date&nbsp;&nbsp;
             <input
               value={expirationDate}
@@ -131,7 +134,7 @@ export default function Checkout() {
             />
           </label>
           <br />
-          <label className={styles.label}>
+          <label className={styles.label} data-test-id="checkout-security-code">
             Security Code&nbsp;&nbsp;
             <input
               value={securityCode}
@@ -146,7 +149,7 @@ export default function Checkout() {
         </div>
       </section>
 
-      <Link href="/confirmation" className={styles.Link}>
+      <Link href="/confirmation" className={styles.Link} data-test-id="checkout-confirm-order">
         <h3>Confirm Your Order</h3>
       </Link>
     </>
