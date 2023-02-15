@@ -2,6 +2,7 @@ import { cookies } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getCollection } from '../../database/nftcollection.ts';
+import RemoveButton from './CartButtons';
 import styles from './page.module.scss';
 
 // import RouterHandler from './router';
@@ -71,6 +72,7 @@ export default async function CartPage() {
               <p data-test-id="cart-product-quantity-<product id>">
                 Quantity: {nft.quantity}
               </p>
+              <RemoveButton nft={nft} />
             </div>
           );
         })}
