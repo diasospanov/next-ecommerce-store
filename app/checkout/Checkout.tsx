@@ -14,9 +14,9 @@ export default function Checkout() {
   const [creditCard, setCreditCard] = useState('');
   const [expirationDate, setExpirationDate] = useState('');
   const [securityCode, setSecurityCode] = useState('');
+
   return (
     <>
-      <h1 className={styles.h1}>Checkout</h1>
       <section className={styles.section}>
         <div className={styles.div}>
           <label className={styles.label} data-test-id="checkout-first-name">
@@ -149,7 +149,11 @@ export default function Checkout() {
         </div>
       </section>
 
-      <Link href="/confirmation" className={styles.Link} data-test-id="checkout-confirm-order">
+      <Link
+        href="/confirmation"
+        className={styles.Link}
+        data-test-id="checkout-confirm-order"
+      >
         <h3>Confirm Your Order</h3>
       </Link>
     </>
