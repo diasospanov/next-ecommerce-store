@@ -54,7 +54,7 @@ export default async function CartPage() {
             <div
               key={nft.id}
               className={styles.div}
-              data-test-id="cart-product-<product id>"
+              data-test-id={`cart-product-${nft.id}`}
             >
               <Link href={`/collection/${nft.id}`}>
                 <Image

@@ -3,6 +3,8 @@ import Link from 'next/link';
 import Cart from './cart/Cart';
 import styles from './layout.module.scss';
 
+export const dynamic = 'force dynamic';
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -22,9 +24,10 @@ export default function RootLayout({ children }) {
               <Link href="/">About</Link>
             </div>
             <div>
-              <Link href="/cart">
-                Cart (<Cart />)
-              </Link>
+              <Link href="/cart">Cart</Link>
+            </div>
+            <div>
+              (<Cart />)
             </div>
           </nav>
         </header>

@@ -10,7 +10,7 @@ export default async function CheckoutPage() {
   if (nftsInCookies) {
     nftsInCookiesParsed = JSON.parse(nftsInCookies.value);
   }
-  console.log(nftsInCookiesParsed);
+
   const collection = await getCollection();
   let collectionWithQuantity = [];
   let nftWithQuantity;
