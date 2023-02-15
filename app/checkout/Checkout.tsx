@@ -202,17 +202,17 @@ export default function Checkout() {
           </label>
           <br />
         </div>
-        {firstName !== undefined &&
-          lastName !== undefined &&
-          buyerEmail !== undefined &&
-          address !== undefined &&
-          city !== undefined &&
-          postalCode !== undefined &&
-          country !== undefined &&
-          creditCard !== undefined &&
-          expirationDate !== undefined &&
-          securityCode !== undefined &&
-          setFilledInForm(true)}
+        {/* {firstName !== '' &&
+          lastName !== '' &&
+          buyerEmail !== '' &&
+          address !== '' &&
+          city !== '' &&
+          postalCode !== '' &&
+          country !== '' &&
+          creditCard !== '' &&
+          expirationDate !== '' &&
+          securityCode !== '' &&
+          setFilledInForm(true)} */}
       </section>
       {!filledInForm ? (
         <p>Please fill in the Form above</p>
