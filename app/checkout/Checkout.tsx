@@ -1,10 +1,10 @@
 'use client';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './checkout.module.scss';
 
 export default function Checkout() {
-  const [firstName, setFirstName] = useState('');
+  /* const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [buyerEmail, setBuyerEmail] = useState('');
   const [address, setAddress] = useState('');
@@ -13,7 +13,82 @@ export default function Checkout() {
   const [country, setCountry] = useState('');
   const [creditCard, setCreditCard] = useState('');
   const [expirationDate, setExpirationDate] = useState('');
-  const [securityCode, setSecurityCode] = useState('');
+  const [securityCode, setSecurityCode] = useState(''); */
+
+  const [filledInForm, setFilledInForm] = useState(false);
+
+  /*   function UpdateFirstName(event) {
+    const enteredFirstName = event.currentTarget.value;
+    useEffect(() => {
+      setFirstName(enteredFirstName);
+    });
+  }
+
+  function UpdateLastName(event) {
+    const enteredLastName = event.currentTarget.value;
+    useEffect(() => {
+      setLastName(enteredLastName);
+    });
+  }
+  function UpdateBuyerEmail(event) {
+    const enteredBuyerEmail = event.currentTarget.value;
+    useEffect(() => {
+      setBuyerEmail(enteredBuyerEmail);
+    });
+  }
+  function UpdateAddress(event) {
+    const enteredAddress = event.currentTarget.value;
+    useEffect(() => {
+      setAddress(enteredAddress);
+    });
+  }
+  function UpdateCity(event) {
+    const enteredCity = event.currentTarget.value;
+    useEffect(() => {
+      setCity(enteredCity);
+    });
+  }
+  function UpdatePostalCode(event) {
+    const enteredPostalCode = event.currentTarget.value;
+    useEffect(() => {
+      setPostalCode(enteredPostalCode);
+    });
+  }
+  function UpdateCountry(event) {
+    const enteredCountry = event.currentTarget.value;
+    useEffect(() => {
+      setCountry(enteredCountry);
+    });
+  }
+  function UpdateCreditCard(event) {
+    const enteredCreditCard = event.currentTarget.value;
+    useEffect(() => {
+      setCreditCard(enteredCreditCard);
+    });
+  }
+  function UpdateExpirationDate(event) {
+    const enteredExpirationDate = event.currentTarget.value;
+    useEffect(() => {
+      setExpirationDate(enteredExpirationDate);
+    });
+  }
+  function UpdateSecurityCode(event) {
+    const enteredSecurityCode = event.currentTarget.value;
+    useEffect(() => {
+      setSecurityCode(enteredSecurityCode);
+    });
+  } */
+
+  let firstName;
+  let lastName;
+  let buyerEmail;
+  let address;
+  let city;
+  let postalCode;
+  let country;
+  let creditCard;
+  let expirationDate;
+  let securityCode;
 
   return (
     <>
@@ -22,10 +97,8 @@ export default function Checkout() {
           <label className={styles.label} data-test-id="checkout-first-name">
             First Name&nbsp;&nbsp;
             <input
-              value={firstName}
               onChange={(event) => {
-                const enteredFirstName = event.currentTarget.value;
-                setFirstName(enteredFirstName);
+                firstName = event.currentTarget.value;
               }}
               required
             />
@@ -34,10 +107,8 @@ export default function Checkout() {
           <label className={styles.label} data-test-id="checkout-last-name">
             Last Name&nbsp;&nbsp;
             <input
-              value={lastName}
               onChange={(event) => {
-                const enteredLastName = event.currentTarget.value;
-                setLastName(enteredLastName);
+                lastName = event.currentTarget.value;
               }}
               required
             />
@@ -46,10 +117,8 @@ export default function Checkout() {
           <label className={styles.label} data-test-id="checkout-email">
             E-Mail&nbsp;&nbsp;
             <input
-              value={buyerEmail}
               onChange={(event) => {
-                const enteredBuyerEmail = event.currentTarget.value;
-                setBuyerEmail(enteredBuyerEmail);
+                buyerEmail = event.currentTarget.value;
               }}
               required
             />
@@ -60,10 +129,8 @@ export default function Checkout() {
           <label className={styles.label} data-test-id="checkout-address">
             Address&nbsp;&nbsp;
             <input
-              value={address}
               onChange={(event) => {
-                const enteredAddress = event.currentTarget.value;
-                setAddress(enteredAddress);
+                address = event.currentTarget.value;
               }}
               required
             />
@@ -72,10 +139,8 @@ export default function Checkout() {
           <label className={styles.label} data-test-id="checkout-city">
             City&nbsp;&nbsp;
             <input
-              value={city}
               onChange={(event) => {
-                const enteredCity = event.currentTarget.value;
-                setCity(enteredCity);
+                city = event.currentTarget.value;
               }}
               required
             />
@@ -84,10 +149,8 @@ export default function Checkout() {
           <label className={styles.label} data-test-id="checkout-postal-code">
             Postal Code&nbsp;&nbsp;
             <input
-              value={postalCode}
               onChange={(event) => {
-                const enteredPostalCode = event.currentTarget.value;
-                setPostalCode(enteredPostalCode);
+                postalCode = event.currentTarget.value;
               }}
               required
             />
@@ -96,10 +159,8 @@ export default function Checkout() {
           <label className={styles.label} data-test-id="checkout-country">
             Country&nbsp;&nbsp;
             <input
-              value={country}
               onChange={(event) => {
-                const enteredCountry = event.currentTarget.value;
-                setCountry(enteredCountry);
+                country = event.currentTarget.value;
               }}
               required
             />
@@ -110,10 +171,8 @@ export default function Checkout() {
           <label className={styles.label} data-test-id="checkout-credit-card">
             Credit Card&nbsp;&nbsp;
             <input
-              value={creditCard}
               onChange={(event) => {
-                const enteredCreditCard = event.currentTarget.value;
-                setCreditCard(enteredCreditCard);
+                creditCard = event.currentTarget.value;
               }}
               required
             />
@@ -125,10 +184,8 @@ export default function Checkout() {
           >
             Expiration Date&nbsp;&nbsp;
             <input
-              value={expirationDate}
               onChange={(event) => {
-                const enteredExpirationDate = event.currentTarget.value;
-                setExpirationDate(enteredExpirationDate);
+                expirationDate = event.currentTarget.value;
               }}
               required
             />
@@ -137,25 +194,37 @@ export default function Checkout() {
           <label className={styles.label} data-test-id="checkout-security-code">
             Security Code&nbsp;&nbsp;
             <input
-              value={securityCode}
               onChange={(event) => {
-                const enteredSecurityCode = event.currentTarget.value;
-                setSecurityCode(enteredSecurityCode);
+                securityCode = event.currentTarget.value;
               }}
               required
             />
           </label>
           <br />
         </div>
+        {firstName !== undefined &&
+          lastName !== undefined &&
+          buyerEmail !== undefined &&
+          address !== undefined &&
+          city !== undefined &&
+          postalCode !== undefined &&
+          country !== undefined &&
+          creditCard !== undefined &&
+          expirationDate !== undefined &&
+          securityCode !== undefined &&
+          setFilledInForm(true)}
       </section>
-
-      <Link
-        href="/confirmation"
-        className={styles.Link}
-        data-test-id="checkout-confirm-order"
-      >
-        <h3>Confirm Your Order</h3>
-      </Link>
+      {!filledInForm ? (
+        <p>Please fill in the Form above</p>
+      ) : (
+        <Link
+          href="/confirmation"
+          className={styles.Link}
+          data-test-id="checkout-confirm-order"
+        >
+          <h3>Confirm Your Order</h3>
+        </Link>
+      )}
     </>
   );
 }
