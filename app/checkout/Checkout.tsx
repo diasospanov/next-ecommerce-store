@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import styles from './checkout.module.scss';
 
@@ -16,6 +17,7 @@ export default function Checkout() {
   const [securityCode, setSecurityCode] = useState(''); */
 
   const [filledInForm, setFilledInForm] = useState(false);
+  const router = useRouter();
 
   /*   function UpdateFirstName(event) {
     const enteredFirstName = event.currentTarget.value;
@@ -79,16 +81,16 @@ export default function Checkout() {
     });
   } */
 
-  let firstName;
-  let lastName;
-  let buyerEmail;
-  let address;
-  let city;
-  let postalCode;
-  let country;
-  let creditCard;
-  let expirationDate;
-  let securityCode;
+  let firstName: string;
+  let lastName: string;
+  let buyerEmail: string;
+  let address: string;
+  let city: string;
+  let postalCode: string | number;
+  let country: string;
+  let creditCard: string | number;
+  let expirationDate: string | number;
+  let securityCode: string | number;
 
   return (
     <>
@@ -214,7 +216,27 @@ export default function Checkout() {
           securityCode !== '' &&
           setFilledInForm(true)} */}
       </section>
-      {!filledInForm ? (
+      <button
+        onClick={() => {
+          if (
+            firstName !== '' &&
+            lastName !== '' &&
+            buyerEmail !== '' &&
+            address !== '' &&
+            city !== '' &&
+            postalCode !== '' &&
+            country !== '' &&
+            creditCard !== '' &&
+            expirationDate !== '' &&
+            securityCode !== ''
+          ) {
+            router.push('/confirmation');
+          }
+        }}
+      >
+        Confirm Your Order
+      </button>
+      {/* {!filledInForm ? (
         <p>Please fill in the Form above</p>
       ) : (
         <Link
@@ -224,7 +246,7 @@ export default function Checkout() {
         >
           <h3>Confirm Your Order</h3>
         </Link>
-      )}
+      )} */}
     </>
   );
 }
