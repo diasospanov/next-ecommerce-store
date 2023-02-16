@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Cart from './cart/Cart';
 import styles from './layout.module.scss';
 
-export const dynamic = 'force dynamic';
+export const dynamic = 'force-dynamic';
 
 export default function RootLayout({ children }) {
   return (

@@ -13,6 +13,8 @@ import styles from './page.module.scss';
 
 // import Cart from './Cart';
 
+export const dynamic = 'force-dynamic';
+
 export default async function CartPage() {
   const nftsInCookies = cookies().get('cart');
   let nftsInCookiesParsed = [];

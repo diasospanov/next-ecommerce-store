@@ -3,6 +3,8 @@ import { getCollection } from '../../database/nftcollection';
 import Checkout from './Checkout';
 import styles from './page.module.scss';
 
+export const dynamic = 'force-dynamic';
+
 export default async function CheckoutPage() {
   const nftsInCookies = cookies().get('cart');
   let nftsInCookiesParsed: { id: number; quantity: number }[] = [];

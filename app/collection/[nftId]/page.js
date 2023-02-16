@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { getSingleNft } from '../../../database/nftcollection';
 import Nft from './Nft.js';
 
-export const dynamic = 'force dynamic';
+export const dynamic = 'force-dynamic';
 
 export default async function NftPage(props) {
   /* const nftOfCurrentPage = collection.find((nft) => {
