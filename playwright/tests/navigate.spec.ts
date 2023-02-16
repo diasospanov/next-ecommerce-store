@@ -17,5 +17,5 @@ test('check cart', async ({ page }) => {
 
   await expect(
     page.locator('[data-test-id="cart-product-3"] >> p:nth-child(4)'),
-  ).toHaveText('Quantity: 2');
+  ).toHaveText('Quantity: 3');
 });

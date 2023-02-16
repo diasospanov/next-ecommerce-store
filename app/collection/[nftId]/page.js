@@ -1,6 +1,6 @@
 // import Image from 'next/image.js';
 import { notFound } from 'next/navigation';
-import { getSingleNft } from '../../../database/nftcollection.ts';
+import { getSingleNft } from '../../../database/nftcollection';
 import Nft from './Nft.js';
 
 export const dynamic = 'force dynamic';

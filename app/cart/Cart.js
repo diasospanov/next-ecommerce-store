@@ -6,13 +6,16 @@ import { getParsedCookie } from '../../utils/cookies';
 
 export default function Cart() {
   const nftsInCookies = getParsedCookie('cart');
-  const totalQuantity = nftsInCookies.reduce(function (
-    previousValue,
-    currentValue,
-  ) {
-    return previousValue + currentValue.quantity;
-  },
-  0);
+  let totalQuantity;
+  !nftsInCookies
+    ? (totalQuantity = 0)
+    : (totalQuantity = nftsInCookies.reduce(function (
+        previousValue,
+        currentValue,
+      ) {
+        return previousValue + currentValue.quantity;
+      },
+      0));
 
   return <h3>{totalQuantity}</h3>;
 }
