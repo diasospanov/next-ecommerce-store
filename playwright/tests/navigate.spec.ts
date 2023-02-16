@@ -18,4 +18,9 @@ test('check cart', async ({ page }) => {
   await expect(
     page.locator('[data-test-id="cart-product-3"] >> p:nth-child(4)'),
   ).toHaveText('Quantity: 3');
+
+  await page.getByRole('button', { name: 'Remove Product' }).click();
+  await expect(
+    page.locator('[data-test-id="cart-product-3"] >> p:nth-child(4)'),
+  ).not.toBeVisible();
 });

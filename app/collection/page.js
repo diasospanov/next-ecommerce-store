@@ -5,7 +5,7 @@ import styles from '../collection/page.module.scss';
 
 export default async function CollectionPage() {
   const collection = await getCollection();
-  console.log('abc', collection);
+
   return (
     <>
       <div>
