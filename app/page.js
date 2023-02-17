@@ -1,5 +1,10 @@
 import styles from './page.module.scss';
 
+export const metadata = {
+  title: 'Trusted NFT Handler',
+  description: 'Buy NFTs from a trusted source.',
+};
+
 export default function HomePage() {
   return (
     <div className={styles.div}>

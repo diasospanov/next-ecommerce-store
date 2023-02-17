@@ -3,6 +3,11 @@ import { getCollection } from '../../database/nftcollection';
 import Checkout from './Checkout';
 import styles from './page.module.scss';
 
+export const metadata = {
+  title: `Checkout Page`,
+  description: 'You are one step from buying an NFT',
+};
+
 export const dynamic = 'force-dynamic';
 
 export default async function CheckoutPage() {

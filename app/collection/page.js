@@ -3,6 +3,11 @@ import Link from 'next/link';
 import { getCollection } from '../../database/nftcollection.ts';
 import styles from '../collection/page.module.scss';
 
+export const metadata = {
+  title: 'NFT Collection',
+  description: 'Right place to choose your NFT.',
+};
+
 export default async function CollectionPage() {
   const collection = await getCollection();
 

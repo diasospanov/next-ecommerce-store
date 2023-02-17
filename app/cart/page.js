@@ -5,6 +5,11 @@ import { getCollection } from '../../database/nftcollection.ts';
 import RemoveButton from './CartButtons';
 import styles from './page.module.scss';
 
+export const metadata = {
+  title: `Cart`,
+  description: 'Your NFT choice',
+};
+
 // import RouterHandler from './router';
 
 /* import RemoveButton from './CartButtons.js'; */

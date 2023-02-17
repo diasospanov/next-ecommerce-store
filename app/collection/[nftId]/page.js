@@ -3,6 +3,11 @@ import { notFound } from 'next/navigation';
 import { getSingleNft } from '../../../database/nftcollection';
 import Nft from './Nft.js';
 
+export const metadata = {
+  title: `NFT Collection`,
+  description: 'Right place to choose your NFT.',
+};
+
 export const dynamic = 'force-dynamic';
 
 export default async function NftPage(props) {

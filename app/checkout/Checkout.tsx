@@ -217,6 +217,7 @@ export default function Checkout() {
           setFilledInForm(true)} */}
       </section>
       <button
+        className={styles.button}
         onClick={() => {
           if (
             firstName !== '' &&
