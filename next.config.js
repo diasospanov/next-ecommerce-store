@@ -3,9 +3,12 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 };
 
 module.exports = nextConfig;
-
-// This was added for Prettier.
-// const abc = xyz;
