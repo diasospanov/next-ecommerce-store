@@ -1,6 +1,6 @@
 'use client';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+// import { useState } from 'react';
 import { getParsedCookie, setStringifiedCookie } from '../../utils/cookies';
 import styles from './CartButtons.module.scss';
 

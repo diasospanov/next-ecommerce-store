@@ -1,7 +1,7 @@
 'use client';
-import Link from 'next/link';
+// import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+// import { useState } from 'react';
 import styles from './checkout.module.scss';
 
 export default function Checkout() {
@@ -16,7 +16,7 @@ export default function Checkout() {
   const [expirationDate, setExpirationDate] = useState('');
   const [securityCode, setSecurityCode] = useState(''); */
 
-  const [filledInForm, setFilledInForm] = useState(false);
+  // const [filledInForm, setFilledInForm] = useState(false);
   const router = useRouter();
 
   /*   function UpdateFirstName(event) {
