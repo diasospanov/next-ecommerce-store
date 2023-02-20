@@ -59,7 +59,7 @@ export default async function CartPage() {
         nftsInCart.map((nft) => {
           return (
             <div
-              key={nft.id}
+              key={`nft-${nft.id}`}
               className={styles.div}
               data-test-id={`cart-product-${nft.id}`}
             >

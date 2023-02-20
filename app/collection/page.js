@@ -19,7 +19,7 @@ export default async function CollectionPage() {
       <div>
         {collection.map((nft) => {
           return (
-            <div key={nft.id} className={styles.div}>
+            <div key={`nft-${nft.id}`} className={styles.div}>
               <Link
                 href={`/collection/${nft.id}`}
                 data-test-id="product-<product id>"

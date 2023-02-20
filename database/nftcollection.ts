@@ -45,7 +45,7 @@ type Nft = {
   id: number;
   name: string | number;
   description: string;
-  price: number;
+  price: string | number;
 };
 
 // get all collection of NFTs
