@@ -43,7 +43,7 @@ import { sql } from './connect';
 
 type Nft = {
   id: number;
-  name: string | number;
+  name: string;
   description: string;
   price: number;
 };
