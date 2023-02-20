@@ -1,6 +1,6 @@
 'use client';
 // import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+// import { useRouter } from 'next/navigation';
 // import { useState } from 'react';
 import styles from './checkout.module.scss';
 
@@ -17,7 +17,7 @@ export default function Checkout() {
   const [securityCode, setSecurityCode] = useState(''); */
 
   // const [filledInForm, setFilledInForm] = useState(false);
-  const router = useRouter();
+  // const router = useRouter();
 
   /*   function UpdateFirstName(event) {
     const enteredFirstName = event.currentTarget.value;
