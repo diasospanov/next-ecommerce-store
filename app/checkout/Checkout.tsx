@@ -94,117 +94,126 @@ export default function Checkout() {
 
   return (
     <>
-      <section className={styles.section}>
-        <div className={styles.div}>
-          <label className={styles.label} data-test-id="checkout-first-name">
-            First Name&nbsp;&nbsp;
-            <input
-              onChange={(event) => {
-                firstName = event.currentTarget.value;
-              }}
-              required
-            />
-          </label>
-          <br />
-          <label className={styles.label} data-test-id="checkout-last-name">
-            Last Name&nbsp;&nbsp;
-            <input
-              onChange={(event) => {
-                lastName = event.currentTarget.value;
-              }}
-              required
-            />
-          </label>
-          <br />
-          <label className={styles.label} data-test-id="checkout-email">
-            E-Mail&nbsp;&nbsp;
-            <input
-              onChange={(event) => {
-                buyerEmail = event.currentTarget.value;
-              }}
-              required
-            />
-          </label>
-          <br />
-        </div>
-        <div className={styles.div}>
-          <label className={styles.label} data-test-id="checkout-address">
-            Address&nbsp;&nbsp;
-            <input
-              onChange={(event) => {
-                address = event.currentTarget.value;
-              }}
-              required
-            />
-          </label>
-          <br />
-          <label className={styles.label} data-test-id="checkout-city">
-            City&nbsp;&nbsp;
-            <input
-              onChange={(event) => {
-                city = event.currentTarget.value;
-              }}
-              required
-            />
-          </label>
-          <br />
-          <label className={styles.label} data-test-id="checkout-postal-code">
-            Postal Code&nbsp;&nbsp;
-            <input
-              onChange={(event) => {
-                postalCode = event.currentTarget.value;
-              }}
-              required
-            />
-          </label>
-          <br />
-          <label className={styles.label} data-test-id="checkout-country">
-            Country&nbsp;&nbsp;
-            <input
-              onChange={(event) => {
-                country = event.currentTarget.value;
-              }}
-              required
-            />
-          </label>
-          <br />
-        </div>
-        <div className={styles.div}>
-          <label className={styles.label} data-test-id="checkout-credit-card">
-            Credit Card&nbsp;&nbsp;
-            <input
-              onChange={(event) => {
-                creditCard = event.currentTarget.value;
-              }}
-              required
-            />
-          </label>
-          <br />
-          <label
-            className={styles.label}
-            data-test-id="checkout-expiration-date"
-          >
-            Expiration Date&nbsp;&nbsp;
-            <input
-              onChange={(event) => {
-                expirationDate = event.currentTarget.value;
-              }}
-              required
-            />
-          </label>
-          <br />
-          <label className={styles.label} data-test-id="checkout-security-code">
-            Security Code&nbsp;&nbsp;
-            <input
-              onChange={(event) => {
-                securityCode = event.currentTarget.value;
-              }}
-              required
-            />
-          </label>
-          <br />
-        </div>
-        {/* {firstName !== '' &&
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          window.location.href = '/confirmation';
+        }}
+      >
+        <section className={styles.section}>
+          <div className={styles.div}>
+            <label className={styles.label} data-test-id="checkout-first-name">
+              First Name&nbsp;&nbsp;
+              <input
+                onChange={(event) => {
+                  firstName = event.currentTarget.value;
+                }}
+                required
+              />
+            </label>
+            <br />
+            <label className={styles.label} data-test-id="checkout-last-name">
+              Last Name&nbsp;&nbsp;
+              <input
+                onChange={(event) => {
+                  lastName = event.currentTarget.value;
+                }}
+                required
+              />
+            </label>
+            <br />
+            <label className={styles.label} data-test-id="checkout-email">
+              E-Mail&nbsp;&nbsp;
+              <input
+                onChange={(event) => {
+                  buyerEmail = event.currentTarget.value;
+                }}
+                required
+              />
+            </label>
+            <br />
+          </div>
+          <div className={styles.div}>
+            <label className={styles.label} data-test-id="checkout-address">
+              Address&nbsp;&nbsp;
+              <input
+                onChange={(event) => {
+                  address = event.currentTarget.value;
+                }}
+                required
+              />
+            </label>
+            <br />
+            <label className={styles.label} data-test-id="checkout-city">
+              City&nbsp;&nbsp;
+              <input
+                onChange={(event) => {
+                  city = event.currentTarget.value;
+                }}
+                required
+              />
+            </label>
+            <br />
+            <label className={styles.label} data-test-id="checkout-postal-code">
+              Postal Code&nbsp;&nbsp;
+              <input
+                onChange={(event) => {
+                  postalCode = event.currentTarget.value;
+                }}
+                required
+              />
+            </label>
+            <br />
+            <label className={styles.label} data-test-id="checkout-country">
+              Country&nbsp;&nbsp;
+              <input
+                onChange={(event) => {
+                  country = event.currentTarget.value;
+                }}
+                required
+              />
+            </label>
+            <br />
+          </div>
+          <div className={styles.div}>
+            <label className={styles.label} data-test-id="checkout-credit-card">
+              Credit Card&nbsp;&nbsp;
+              <input
+                onChange={(event) => {
+                  creditCard = event.currentTarget.value;
+                }}
+                required
+              />
+            </label>
+            <br />
+            <label
+              className={styles.label}
+              data-test-id="checkout-expiration-date"
+            >
+              Expiration Date&nbsp;&nbsp;
+              <input
+                onChange={(event) => {
+                  expirationDate = event.currentTarget.value;
+                }}
+                required
+              />
+            </label>
+            <br />
+            <label
+              className={styles.label}
+              data-test-id="checkout-security-code"
+            >
+              Security Code&nbsp;&nbsp;
+              <input
+                onChange={(event) => {
+                  securityCode = event.currentTarget.value;
+                }}
+                required
+              />
+            </label>
+            <br />
+          </div>
+          {/* {firstName !== '' &&
           lastName !== '' &&
           buyerEmail !== '' &&
           address !== '' &&
@@ -215,28 +224,30 @@ export default function Checkout() {
           expirationDate !== '' &&
           securityCode !== '' &&
           setFilledInForm(true)} */}
-      </section>
-      <button
-        className={styles.button}
-        onClick={() => {
-          if (
-            firstName !== '' &&
-            lastName !== '' &&
-            buyerEmail !== '' &&
-            address !== '' &&
-            city !== '' &&
-            postalCode !== '' &&
-            country !== '' &&
-            creditCard !== '' &&
-            expirationDate !== '' &&
-            securityCode !== ''
-          ) {
-            router.push('/confirmation');
-          }
-        }}
-      >
-        Confirm Your Order
-      </button>
+        </section>
+        <button
+          data-test-id="checkout-confirm-order"
+          className={styles.button}
+          /* onClick={() => {
+            if (
+              firstName !== '' &&
+              lastName !== '' &&
+              buyerEmail !== '' &&
+              address !== '' &&
+              city !== '' &&
+              postalCode !== '' &&
+              country !== '' &&
+              creditCard !== '' &&
+              expirationDate !== '' &&
+              securityCode !== ''
+            ) {
+              router.push('/confirmation');
+            }
+          }} */
+        >
+          Confirm Your Order
+        </button>
+      </form>
       {/* {!filledInForm ? (
         <p>Please fill in the Form above</p>
       ) : (
