@@ -81,7 +81,7 @@ export default function Checkout() {
     });
   } */
 
-  let firstName: string;
+  /* let firstName: string;
   let lastName: string;
   let buyerEmail: string;
   let address: string;
@@ -90,7 +90,7 @@ export default function Checkout() {
   let country: string;
   let creditCard: string | number;
   let expirationDate: string | number;
-  let securityCode: string | number;
+  let securityCode: string | number; */
 
   return (
     <>
@@ -104,86 +104,46 @@ export default function Checkout() {
           <div className={styles.div}>
             <label className={styles.label} data-test-id="checkout-first-name">
               First Name&nbsp;&nbsp;
-              <input
-                onChange={(event) => {
-                  firstName = event.currentTarget.value;
-                }}
-                required
-              />
+              <input required />
             </label>
             <br />
             <label className={styles.label} data-test-id="checkout-last-name">
               Last Name&nbsp;&nbsp;
-              <input
-                onChange={(event) => {
-                  lastName = event.currentTarget.value;
-                }}
-                required
-              />
+              <input required />
             </label>
             <br />
             <label className={styles.label} data-test-id="checkout-email">
               E-Mail&nbsp;&nbsp;
-              <input
-                onChange={(event) => {
-                  buyerEmail = event.currentTarget.value;
-                }}
-                required
-              />
+              <input required />
             </label>
             <br />
           </div>
           <div className={styles.div}>
             <label className={styles.label} data-test-id="checkout-address">
               Address&nbsp;&nbsp;
-              <input
-                onChange={(event) => {
-                  address = event.currentTarget.value;
-                }}
-                required
-              />
+              <input required />
             </label>
             <br />
             <label className={styles.label} data-test-id="checkout-city">
               City&nbsp;&nbsp;
-              <input
-                onChange={(event) => {
-                  city = event.currentTarget.value;
-                }}
-                required
-              />
+              <input required />
             </label>
             <br />
             <label className={styles.label} data-test-id="checkout-postal-code">
               Postal Code&nbsp;&nbsp;
-              <input
-                onChange={(event) => {
-                  postalCode = event.currentTarget.value;
-                }}
-                required
-              />
+              <input required />
             </label>
             <br />
             <label className={styles.label} data-test-id="checkout-country">
               Country&nbsp;&nbsp;
-              <input
-                onChange={(event) => {
-                  country = event.currentTarget.value;
-                }}
-                required
-              />
+              <input required />
             </label>
             <br />
           </div>
           <div className={styles.div}>
             <label className={styles.label} data-test-id="checkout-credit-card">
               Credit Card&nbsp;&nbsp;
-              <input
-                onChange={(event) => {
-                  creditCard = event.currentTarget.value;
-                }}
-                required
-              />
+              <input required />
             </label>
             <br />
             <label
@@ -191,12 +151,7 @@ export default function Checkout() {
               data-test-id="checkout-expiration-date"
             >
               Expiration Date&nbsp;&nbsp;
-              <input
-                onChange={(event) => {
-                  expirationDate = event.currentTarget.value;
-                }}
-                required
-              />
+              <input required />
             </label>
             <br />
             <label
@@ -204,12 +159,7 @@ export default function Checkout() {
               data-test-id="checkout-security-code"
             >
               Security Code&nbsp;&nbsp;
-              <input
-                onChange={(event) => {
-                  securityCode = event.currentTarget.value;
-                }}
-                required
-              />
+              <input required />
             </label>
             <br />
           </div>
