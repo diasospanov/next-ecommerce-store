@@ -4,7 +4,7 @@ export async function up(sql) {
   id integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   name varchar(30) NOT NULL,
   description varchar(500) NOT NULL,
-  price varchar(10) NOT NULL
+  price integer(10) NOT NULL
   )
   `;
 }
