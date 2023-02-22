@@ -26,10 +26,12 @@ export default function RootLayout({ children }) {
             </div>
 
             <div>
-              <Link href="/cart">Cart</Link>
+              <Link data-test-id="cart-link" href="/cart">
+                Cart
+              </Link>
             </div>
             <div>
-              (<CartQuantity />)
+              (<CartQuantity data-test-id="cart-count" />)
             </div>
           </nav>
         </header>
